@@ -18,6 +18,7 @@
 #import "OGStores.h"
 #import "Odisha360LanguageViewController.h"
 #import "SignInViewController.h"
+#import "CLTickerView.h"
 @interface Odisha360ViewController () {
     BOOL isOdishaLanguage;
     
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tableData;
 
+@property (weak, nonatomic) IBOutlet CLTickerView *newsScrollView;
 @property (nonatomic, strong) CXWidgetItem *menuItem;
 
 @property (strong, nonatomic) UISearchDisplayController *searchDisplayController;
@@ -61,15 +63,15 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     [OGStores getStoreInfoWithBlock:^(NSArray *storeList, NSError *error) {
         [(CCKFNavDrawer*)self.navigationController setSelectedStore:storeList.lastObject];
     }];
-
+    
     [OGWorkSpace sharedWorkspace].leftViewController.delegate = self;
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.tableView.tableFooterView = [UIView new];
-
+    
     [self enabledPullToRefreshAndLoadMore:self.tableView];
-
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.loadMoreView.bottomButton setTitle:@"load more" forState:UIControlStateNormal];
     [self.loadMoreView.bottomButton setTitle:@"loading" forState:UIControlStateSelected];
@@ -77,13 +79,13 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     
     self.tableData = [[NSMutableArray alloc] initWithCapacity:10];
     
-
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserLoggedIn:) name:@"CXUserRegisterDidNotification" object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserLoggedIn:) name:@"CXUserLoginDidNotification" object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserLoggedIn:) name:@"CXUserProfileShowNotification" object:nil];
+    
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserLoggedIn:) name:@"CXUserRegisterDidNotification" object:nil];
+    //
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserLoggedIn:) name:@"CXUserLoginDidNotification" object:nil];
+    //
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserLoggedIn:) name:@"CXUserProfileShowNotification" object:nil];
     
     self.leftNavigationBarItemTitle = @"Latest";
     
@@ -91,14 +93,15 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     
     
 #if DEBUG
-    [OGWorkSpace sharedWorkspace].mallId = @"3";
+   //
+    //[OGWorkSpace sharedWorkspace].mallId = @"3";
     isOdishaLanguage = false;
     
     [self loadDatas];
     
 #endif
-
-
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -126,22 +129,22 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     CCKFNavDrawer *navController = (CCKFNavDrawer*)self.navigationController;
     UIButton *lanBtn = sender;
     
-   // lanBtn.selected =! lanBtn.selected;
+    // lanBtn.selected =! lanBtn.selected;
     
-    if ([lanBtn.titleLabel.text isEqualToString:@"ଓଡ଼ିଶା"]) {//ଓଡ଼ିଶା
+    if ([lanBtn.titleLabel.text isEqualToString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language"]]) {//ଓଡ଼ିଶା
         [self didTapOdishaLanguage:nil];
         [navController.languageBtn setTitle:@"English" forState:UIControlStateNormal];
     }else if ([lanBtn.titleLabel.text isEqualToString:@"English"]){
         [self didTapEnglishLanguage:nil];
-        [navController.languageBtn setTitle:@"ଓଡ଼ିଶା" forState:UIControlStateNormal];
+        [navController.languageBtn setTitle:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language"] forState:UIControlStateNormal];
     }
-//    if (lanBtn.selected) {
-//        [self didTapOdishaLanguage:nil];
+    //    if (lanBtn.selected) {
+    //        [self didTapOdishaLanguage:nil];
     //    } [_languageBtn setTitle:@"English" forState:UIControlStateNormal];
-   // [_languageBtn setTitle:@"ଓଡ଼ିଶା" forState:UIControlStateSelected];
-//    else {
-//        [self didTapEnglishLanguage:nil];
-//    }
+    // [_languageBtn setTitle:@"ଓଡ଼ିଶା" forState:UIControlStateSelected];
+    //    else {
+    //        [self didTapEnglishLanguage:nil];
+    //    }
 }
 //    [_languageBtn setTitle:@"English" forState:UIControlStateNormal];
 //[_languageBtn setTitle:@"ଓଡ଼ିଶା" forState:UIControlStateSelected];
@@ -158,13 +161,13 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
 
 //- (void)tapAction:(id)sender {
 //    CXKeysViewController *keyView = [self.storyboard instantiateViewControllerWithIdentifier:@"CXKeysViewController"];
-//    
+//
 //   keyView.tabItemName = @"Notifications";
 //    keyView.tabBGColor = [UIColor colorWithRed:243.0f/255 green:243.0f/255 blue:243.0f/255 alpha:1.0f];
 //    keyView.navController = (CCKFNavDrawer*)self.navigationController;
 //    [self.navigationController pushViewController:keyView animated:YES];
 //
-//    
+//
 //    NSLog(@"Tap Action enabled");
 //  /*  SignInViewController* signInViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
 //    [self.navigationController pushViewController:signInViewController animated:YES];*/
@@ -173,6 +176,38 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
 - (BOOL)shouldShowLanguageSelection {
     return true;
 }
+
+- (void)getBreakingNews{
+    //http://muktha.tv:8081/Services/getMasters?type=Breaking%20news&unlimited=false&mallId=6
+    
+    
+    
+    [OGOdishaNews getNewsWithType:@"Breaking news" currentPageNumber:@"" block:^(NSArray *mallsArray, NSError *error) {
+        NSString *breakingNewsStr = @".";
+        for (OGOdishaNewsJobs*job in mallsArray) {
+            breakingNewsStr = [breakingNewsStr stringByAppendingString:job.name];
+
+        }
+        
+        self.newsTrackView.text = breakingNewsStr;
+        self.newsTrackView.textColor = [UIColor blueColor];
+        self.newsTrackView.labelSpacing = 30; // distance between start and end labels
+        self.newsTrackView.pauseInterval = 1.7; // seconds of pause before scrolling starts again
+        self.newsTrackView.scrollSpeed = 30; // pixels per second
+        self.newsTrackView.textAlignment = NSTextAlignmentCenter; // centers text when no auto-scrolling is applied
+        self.newsTrackView.fadeLength = 12.f;
+        self.newsTrackView.scrollDirection = CBAutoScrollDirectionLeft;
+        [self.newsTrackView observeApplicationNotifications];
+
+        //[self.newsTrackView setMarqueeStr:breakingNewsStr];
+        self.newsTrackView.backgroundColor = [UIColor clearColor];
+    
+       // self.newsScrollView.marqueeStr = breakingNewsStr;
+
+    }];
+    
+}
+
 
 
 - (void)loadDatas
@@ -193,27 +228,68 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     //    + "/Services/getMasters?type=allMalls&pageNumber=" + pageNo
     //    + "&pageSize=" + pageSize;
     [MBProgressHUD showHUDAddedTo:self.view animated:true];
-
+    
     if (!self.loadMoreView.isRefreshing) {
         self.currentPage = 1;
     }
+    //http://52.66.141.69:8081/Services/getMasters?mallId=4&pageNumber=1&pageSize=10
+    
+    
+#if STOREONGO
+    
+#elif ODNEWS360
+    //OGDataServicesAPIBaseURLString = @"http://52.74.52.134:8081/";
+    [self refreshData];
 
+#elif MUKTHATV
+    // OGDataServicesAPIBaseURLString = @"http://52.74.52.134:8081/";
+    if ([_menuItem.Name isEqualToString:@"Latest"]) {
+        [OGOdishaNews getLatesWithType:_menuItem.Name currentPageNumber:self.currentPage block:^(NSArray *mallsArray, NSError *error) {
+            [self endRefresh];
+            
+            if(self.currentPage == 1) {
+                [self.tableData removeAllObjects];
+            }
+            [self.tableData addObjectsFromArray:mallsArray];
+            self.hasNextPage = mallsArray.count == kPageSize ? YES : NO;
+            
+            [self.tableView reloadData];
+            
+            self.currentPage++;
+        }];
+
+    }else{
+        [self refreshData];
+
+    }
+    [self getBreakingNews];
+    
+#else
+    
+    
+#endif
+    
+    
+    
+}
+
+
+- (void)refreshData{
     [OGOdishaNews getNewsWithType:_menuItem.Name currentPageNumber:self.currentPage block:^(NSArray *mallsArray, NSError *error) {
         [self endRefresh];
         
         if(self.currentPage == 1) {
             [self.tableData removeAllObjects];
         }
-
+        
         [self.tableData addObjectsFromArray:mallsArray];
         self.hasNextPage = mallsArray.count == kPageSize ? YES : NO;
-
+        
         [self.tableView reloadData];
         
         self.currentPage++;
     }];
 
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -249,7 +325,7 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
         
         NSIndexPath *indexPath = nil;
         OGOdishaNewsJobs *newsItem = nil;
-
+        
         if (self.searchDisplayController.active) {
             indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
             newsItem = [searchResults objectAtIndex:indexPath.row];
@@ -257,7 +333,7 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
             indexPath = [self.tableView indexPathForSelectedRow];
             newsItem = [self.tableData objectAtIndex:indexPath.row];
         }
-
+        
         newDVC.newsItem = newsItem;
         newDVC.menuItem = self.menuItem;
     }else if ([segue.identifier isEqualToString:@"showLanguageSelectionVC"]) {
@@ -276,7 +352,7 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     if (self.rightMenuTableView == tableView) {
         return [super tableView:tableView numberOfRowsInSection:section];
     }
-
+    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [searchResults count];
         
@@ -299,12 +375,13 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     } else {
         jobsInfo = [self.tableData objectAtIndex:indexPath.row];
     }
-
+    //[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"];
+    
     if (isOdishaLanguage) {
-        cell.newsTitle.font = [UIFont fontWithName:@"AkrutiOriSarala06" size:cell.newsTitle.font.pointSize];
-        cell.newsSourceLabel.font = [UIFont fontWithName:@"AkrutiOriSarala06" size:cell.newsSourceLabel.font.pointSize];
-        cell.newsDateLabel.font = [UIFont fontWithName:@"AkrutiOriSarala06" size:cell.newsDateLabel.font.pointSize];
-
+        cell.newsTitle.font = [UIFont fontWithName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"] size:cell.newsTitle.font.pointSize];
+        cell.newsSourceLabel.font = [UIFont fontWithName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"] size:cell.newsSourceLabel.font.pointSize];
+        cell.newsDateLabel.font = [UIFont fontWithName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"] size:cell.newsDateLabel.font.pointSize];
+        
     }else{
         
         cell.newsTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:cell.newsTitle.font.pointSize];
@@ -321,13 +398,13 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     }else {
         cell.newsFavBtn.selected = false;
     }
-
+    
     [cell.newsCommentBtn setTitle:jobsInfo.totalReviews forState:UIControlStateNormal];
     cell.newsTitle.text = jobsInfo.name;
     cell.newsSourceLabel.text = jobsInfo.postedBy;
     cell.newsDateLabel.text = jobsInfo.date;
     [cell.newsImageView setImageWithURL:[NSURL URLWithString:jobsInfo.imageURL] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-//    [cell.newsCommentBtn setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)jobsInfo.jobComments.count] forState:UIControlStateNormal];
+    //    [cell.newsCommentBtn setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)jobsInfo.jobComments.count] forState:UIControlStateNormal];
     
     return cell;
 }
@@ -349,7 +426,7 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
     if (self.rightMenuTableView == tableView) {
         return [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
-
+    
     [self performSegueWithIdentifier:@"ODNewsDetailVC" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
@@ -405,26 +482,26 @@ static NSString * const reuseIdentifier = @"ODNewsCell";
 
 - (IBAction)didTapEnglishLanguage:(id)sender {
     CCKFNavDrawer *navController = (CCKFNavDrawer*)self.navigationController;
-   // navController.languageBtn.selected = false;
-    [navController.languageBtn setTitle:@"ଓଡ଼ିଶା" forState:UIControlStateNormal];
+    // navController.languageBtn.selected = false;
+    [navController.languageBtn setTitle:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language"] forState:UIControlStateNormal];
     navController.titleLabel.font  = [UIFont fontWithName:@"Roboto-Regular" size:14.0f];
-
+    
     [self dismissViewControllerAnimated:false completion:nil];
-    [OGWorkSpace sharedWorkspace].mallId = @"3";
+    [OGWorkSpace sharedWorkspace].mallId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"MALL_ID"];
     isOdishaLanguage = false;
     [[NSUserDefaults standardUserDefaults] setValue:@"English" forKey:@"Language"];
     [self loadDatas];
-
+    
 }
 
 - (IBAction)didTapOdishaLanguage:(id)sender {
     CCKFNavDrawer *navController = (CCKFNavDrawer*)self.navigationController;
-   // navController.languageBtn.selected = true;
-    navController.titleLabel.font  = [UIFont fontWithName:@"AkrutiOriSarala06" size:navController.titleLabel.font.pointSize];
-
+    // navController.languageBtn.selected = true;
+   // navController.titleLabel.font  = [UIFont fontWithName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"] size:navController.titleLabel.font.pointSize];
+    
     [navController.languageBtn setTitle:@"English" forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:false completion:nil];
-    [OGWorkSpace sharedWorkspace].mallId = @"5";
+    [OGWorkSpace sharedWorkspace].mallId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_MALL_ID"];
     [[NSUserDefaults standardUserDefaults] setValue:@"odisha" forKey:@"Language"];
     isOdishaLanguage = true;
     

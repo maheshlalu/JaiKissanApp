@@ -11,85 +11,92 @@
 #import "OnGoDownloadManager.h"
 #import "JSONKit.h"
 
+//MUKTHA TV
+
+//http://muktha.tv:8081/
+
+//ODISHA NEWS
+//http://52.74.52.134:8081/
 
 
-NSString* const GetProductCategoriesURL = @"http://52.74.52.134:8081/Services/getMasters?type=ProductCategories&mallId=%@";
 
-NSString* const GetStoreCategoriesURL = @"http://52.74.52.134:8081/Services/getMasters?type=StoreCategories&mallId=%@";
+NSString* const GetProductCategoriesURL = @"http://muktha.tv:8081/Services/getMasters?type=ProductCategories&mallId=%@";
 
-NSString* const GetaddMacIdURL = @"http://52.74.52.134:8081/MobileAPIs/postedJobs?type=MacIdInfo";
+NSString* const GetStoreCategoriesURL = @"http://muktha.tv:8081/Services/getMasters?type=StoreCategories&mallId=%@";
 
-NSString* const GetChangeJobStatusURL = @"http://52.74.52.134:8081/Services/updateConsumerJobMetaData?";
+NSString* const GetaddMacIdURL = @"http://muktha.tv:8081/MobileAPIs/postedJobs?type=MacIdInfo";
 
-NSString* const GetRegisterMacIdURL = @"http://52.74.52.134:8081/Services/registerMacId?";
+NSString* const GetChangeJobStatusURL = @"http://muktha.tv:8081/Services/updateConsumerJobMetaData?";
 
-NSString* const GetPSubCategoriesURL = @"http://52.74.52.134:8081/Services/getMasters?type=PSubCategories&mallId=%@";
+NSString* const GetRegisterMacIdURL = @"http://muktha.tv:8081/Services/registerMacId?";
 
-NSString* const GetP3rdCategoryURL = @"http://52.74.52.134:8081/Services/getMasters?type=P3rdLevelCategories&mallId=%@";
+NSString* const GetPSubCategoriesURL = @"http://muktha.tv:8081/Services/getMasters?type=PSubCategories&mallId=%@";
 
-NSString* const GetStoresURL = @"http://52.74.52.134:8081/Services/getMasters?type=%@&mallId=%@";
+NSString* const GetP3rdCategoryURL = @"http://muktha.tv:8081/Services/getMasters?type=P3rdLevelCategories&mallId=%@";
 
-NSString* const GetCustomTabItemsURL = @"http://52.74.52.134:8081/Services/getMasters?type=%@&mallId=%@";
+NSString* const GetStoresURL = @"http://muktha.tv:8081/Services/getMasters?type=%@&mallId=%@";
 
-NSString* const GetCustomHtmlsURL = @"http://52.74.52.134:8081/MobileAPIs/getCustomJobs?category=%@&mallId=%@";
+NSString* const GetCustomTabItemsURL = @"http://muktha.tv:8081/Services/getMasters?type=%@&mallId=%@";
 
-NSString* const GetServiceCategoriesURL = @"http://52.74.52.134:8081/Services/getMasters?type=ServicesCategories&mallId=%@";
+NSString* const GetCustomHtmlsURL = @"http://muktha.tv:8081/MobileAPIs/getCustomJobs?category=%@&mallId=%@";
 
-NSString* const GetServiceJobTypesURL = @"http://52.74.52.134:8081/Services/getMasters?type=allServicesJobTypes&mallId=%@";
+NSString* const GetServiceCategoriesURL = @"http://muktha.tv:8081/Services/getMasters?type=ServicesCategories&mallId=%@";
 
-NSString* const GetProductJobTypesURL = @"http://52.74.52.134:8081/Services/getMasters?type=allJobTypes&mallId=%@";
+NSString* const GetServiceJobTypesURL = @"http://muktha.tv:8081/Services/getMasters?type=allServicesJobTypes&mallId=%@";
 
-NSString* const GetAllProductsURL = @"http://52.74.52.134:8081/Services/getMasters?type=%@&mallId=%@";
+NSString* const GetProductJobTypesURL = @"http://muktha.tv:8081/Services/getMasters?type=allJobTypes&mallId=%@";
 
-NSString* const GetmyServicesURL = @"http://52.74.52.134:8081/Services/getMyJobs?mallId=134&type=%@";
+NSString* const GetAllProductsURL = @"http://muktha.tv:8081/Services/getMasters?type=%@&mallId=%@";
 
-NSString* const GetSubServiceURL = @"http://52.74.52.134:8081/Services/getMyJobs?jobId=%d";
+NSString* const GetmyServicesURL = @"http://muktha.tv:8081/Services/getMyJobs?mallId=134&type=%@";
 
-NSString* const GetMallInfoURL = @"http://52.74.52.134:8081/Services/getMasters?mallId=%@&type=singleMall";
+NSString* const GetSubServiceURL = @"http://muktha.tv:8081/Services/getMyJobs?jobId=%d";
 
-NSString* const GetRegisteredURL = @"http://52.74.52.134:8081/MobileAPIs/regAndloyaltyAPI?";
+NSString* const GetMallInfoURL = @"http://muktha.tv:8081/Services/getMasters?mallId=%@&type=singleMall";
 
-NSString* const GetUpdateProfileURL = @"http://52.74.52.134:8081/MobileAPleIs/updateUserDetails?";
+NSString* const GetRegisteredURL = @"http://muktha.tv:8081/MobileAPIs/regAndloyaltyAPI?";
 
-NSString* const GetLoginDataURL = @"http://52.74.52.134:8081/MobileAPIs/loginConsumerForOrg?";
+NSString* const GetUpdateProfileURL = @"http://muktha.tv:8081/MobileAPleIs/updateUserDetails?";
 
-NSString* const Getchange_PwdURL = @"http://52.74.52.134:8081/MobileAPIs/changePassword?";
+NSString* const GetLoginDataURL = @"http://muktha.tv:8081/MobileAPIs/loginConsumerForOrg?";
 
-NSString* const Postforgot_PwdURL = @"http://52.74.52.134:8081/MobileAPIs/forgotpwd?";
+NSString* const Getchange_PwdURL = @"http://muktha.tv:8081/MobileAPIs/changePassword?";
 
-NSString* const GetOffersURL = @"http://52.74.52.134:8081/Services/getMasters?type=%@&mallId=%@";
+NSString* const Postforgot_PwdURL = @"http://muktha.tv:8081/MobileAPIs/forgotpwd?";
 
-NSString* const GetSpecial_OffersURL = @"http://52.74.52.134:8081/Services/getMasters?type=SpecificOffers&mallId=%@";
+NSString* const GetOffersURL = @"http://muktha.tv:8081/Services/getMasters?type=%@&mallId=%@";
 
-NSString* const GetUpdateURL = @"http://52.74.52.134:8081/MobileAPIs/updateUserDetails?";
+NSString* const GetSpecial_OffersURL = @"http://muktha.tv:8081/Services/getMasters?type=SpecificOffers&mallId=%@";
 
-NSString* const GetCountriesURL = @"http://52.74.52.134:8081/Services/countries";
+NSString* const GetUpdateURL = @"http://muktha.tv:8081/MobileAPIs/updateUserDetails?";
 
-NSString* const PostReviewsURL = @"http://52.74.52.134:8081/jobs/saveJobCommentJSON?jobId=%@&userId=%@&comment=%@&rating=%@";
+NSString* const GetCountriesURL = @"http://muktha.tv:8081/Services/countries";
 
-NSString* const PostLoyalityURL = @"http://52.74.52.134:8081/MobileAPIs/createORGetJobInstance?";
+NSString* const PostReviewsURL = @"http://muktha.tv:8081/jobs/saveJobCommentJSON?jobId=%@&userId=%@&comment=%@&rating=%@";
 
-NSString* const PostServicesURL = @"http://52.74.52.134:8081/MobileAPIs/postedJobs?";
+NSString* const PostLoyalityURL = @"http://muktha.tv:8081/MobileAPIs/createORGetJobInstance?";
 
-NSString* const PostCartURL = @"http://52.74.52.134:8081/MobileAPIs/postedJobs?";
+NSString* const PostServicesURL = @"http://muktha.tv:8081/MobileAPIs/postedJobs?";
 
-NSString* const GetCartURL = @"http://52.74.52.134:8081/services/getMyJobs?mallId=134&type=Cart;18|Draft";
+NSString* const PostCartURL = @"http://muktha.tv:8081/MobileAPIs/postedJobs?";
 
-NSString* const GetLoyaltyCardURL = @"http://52.74.52.134:8081/MobileAPIs/getLoyaltyPointsCard?email=%@&ownerId=%@";
+NSString* const GetCartURL = @"http://muktha.tv:8081/services/getMyJobs?mallId=134&type=Cart;18|Draft";
+
+NSString* const GetLoyaltyCardURL = @"http://muktha.tv:8081/MobileAPIs/getLoyaltyPointsCard?email=%@&ownerId=%@";
 
 
-NSString* const POSTORDER_URL = @"http://52.74.52.134:8081/MobileAPIs/postedJobs?type=PlaceOrder&";
+NSString* const POSTORDER_URL = @"http://muktha.tv:8081/MobileAPIs/postedJobs?type=PlaceOrder&";
 
-NSString* const GetAllORDERS_URL = @"http://52.74.52.134:8081/Services/getMasters?";
-NSString* const UpdateProfile_URL = @"http://52.74.52.134:8081/MobileAPIs/updateUserDetails?";
+NSString* const GetAllORDERS_URL = @"http://muktha.tv:8081/Services/getMasters?";
+NSString* const UpdateProfile_URL = @"http://muktha.tv:8081/MobileAPIs/updateUserDetails?";
 
-NSString *const CalenderEvents  = @"http://52.74.52.134:8081/Services/getMasters?type=CalenderEvents&mallId=%@";
+NSString *const CalenderEvents  = @"http://muktha.tv:8081/Services/getMasters?type=CalenderEvents&mallId=%@";
 
-NSString *const keys = @"http://52.74.52.134:8081/Services/getMasters?type=Keys&mallId=%@&unlimited=true";
+NSString *const keys = @"http://muktha.tv:8081/Services/getMasters?type=Keys&mallId=%@&unlimited=true";
 
-NSString *const featureProduct = @"http://52.74.52.134:8081/Services/getMasters?type=Featured Products&mallId=%@";//http://52.74.52.134:8081/Services/getMasters?jobId=54830
+NSString *const featureProduct = @"http://muktha.tv:8081/Services/getMasters?type=Featured Products&mallId=%@";//http://muktha.tv:8081/Services/getMasters?jobId=54830
 
-NSString *const featureProductsJob = @"http://52.74.52.134:8081/Services/getMasters?jobId=%@";
+NSString *const featureProductsJob = @"http://muktha.tv:8081/Services/getMasters?jobId=%@";
 
 static DataServices* _dataServices;
 
@@ -292,7 +299,7 @@ static DataServices* _dataServices;
 }
 
 
-//http://52.74.52.134:8081/Services/getMasters?type=Keys&mallId=42&unlimited=true
+//http://muktha.tv:8081/Services/getMasters?type=Keys&mallId=42&unlimited=true
 
 -(void)getAllStoresOfType:(NSString*)type mallId:(NSString *)mallId finishblock:(void(^)(NSArray* storeList))callBackBlock
 {
@@ -563,6 +570,7 @@ static DataServices* _dataServices;
 }
 
 
+
 -(void)placeOrder:(NSString*)emailId mallId:(NSString*)mallId orderInfo:(NSString*)jsonInfo finishblock:(void(^)(NSDictionary* response))callBackBlock
 {
     NSString* urlString = [NSString stringWithFormat:@"%@json=%@&dt=CAMPAIGNS&category=Services&userId=%@&consumerEmail=%@",POSTORDER_URL,jsonInfo,mallId,emailId];
@@ -608,7 +616,7 @@ static DataServices* _dataServices;
 
 -(void)getAllServicesInfoForMallId:(NSString *)mallId block:(void (^)(NSArray* list))callBackBlock
 {
-    NSString* urlString = [NSString stringWithFormat:@"http://52.74.52.134:8081/Services/getMasters?type=allServicesJobTypes&mallId=%@",mallId];
+    NSString* urlString = [NSString stringWithFormat:@"http://muktha.tv:8081/Services/getMasters?type=allServicesJobTypes&mallId=%@",mallId];
     [[OnGoDownloadManager sharedDownloadManager] downloadDataWithURLString:urlString dataType:DATA_TYPE_JSON finishBlock:^(OnGoDownloadData *downloadData){
         
         if(downloadData.data)
@@ -622,8 +630,8 @@ static DataServices* _dataServices;
 
 -(void)getFormInformationMallId:(NSString *)mallId block:(void (^)(NSArray* list))callBackBlock;{
     
-   // NSString* urlString = [NSString stringWithFormat:@"http://52.74.52.134:8081/Services/getMasters?type=allServicesJobTypes&mallId=%@",mallId];
-    [[OnGoDownloadManager sharedDownloadManager] downloadDataWithURLString:@"http://52.74.52.134:8081/Services/getMasters?type=allServicesJobTypes&mallId=688" dataType:DATA_TYPE_JSON finishBlock:^(OnGoDownloadData *downloadData){
+   // NSString* urlString = [NSString stringWithFormat:@"http://muktha.tv:8081/Services/getMasters?type=allServicesJobTypes&mallId=%@",mallId];
+    [[OnGoDownloadManager sharedDownloadManager] downloadDataWithURLString:@"http://muktha.tv:8081/Services/getMasters?type=allServicesJobTypes&mallId=688" dataType:DATA_TYPE_JSON finishBlock:^(OnGoDownloadData *downloadData){
         
         if(downloadData.data)
         {
@@ -672,7 +680,7 @@ static DataServices* _dataServices;
 
 -(void)getLoyaltyInfoForMallId:(NSString *)mallId emailId:(NSString *)emailId   block:(void (^)(NSDictionary* dict))callBackBlock
 {
-    NSString* urlString = [NSString stringWithFormat:@"http://52.74.52.134:8081/MobileAPIs/getConJobInstances?email=%@&ownerId=%@",emailId,mallId];
+    NSString* urlString = [NSString stringWithFormat:@"http://muktha.tv:8081/MobileAPIs/getConJobInstances?email=%@&ownerId=%@",emailId,mallId];
     [[OnGoDownloadManager sharedDownloadManager] downloadDataWithURLString:urlString dataType:DATA_TYPE_JSON finishBlock:^(OnGoDownloadData *downloadData){
         
         if(downloadData.data)
@@ -743,7 +751,7 @@ static DataServices* _dataServices;
 #pragma mark Notification
 
 - (void)getNotificatin:(NSString*)mallId block:(void(^)(NSArray *list))callBackBlock;{
-    //NSString *const keys = @"http://52.74.52.134:8081/Services/getMasters?type=Keys&mallId=%@&unlimited=true";
+    //NSString *const keys = @"http://muktha.tv:8081/Services/getMasters?type=Keys&mallId=%@&unlimited=true";
 //http://odishanews360.com:8081/Services/getMasters?type=keys&mallId=3
     
     NSString* urlString = [NSString stringWithFormat:@"http://odishanews360.com:8081/Services/getMasters?type=keys&mallId=%@",mallId];

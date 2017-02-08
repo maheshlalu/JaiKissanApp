@@ -31,5 +31,6 @@
 + (NSURLSessionDataTask *)getMallInfoWithBlock:(void (^)(OGMallInfo *mallInfo, NSError *error))block;
     
 + (NSURLSessionDataTask *)getNewsWithType:(NSString*)newsType currentPageNumber:(NSUInteger)pageNumber block:(void (^)(NSArray *allMallsInfo, NSError *error))block;
++ (NSURLSessionDataTask *)getLatesWithType:(NSString*)newsType currentPageNumber:(NSUInteger)pageNumber block:(void (^)(NSArray *allMallsInfo, NSError *error))block;
 
 @end

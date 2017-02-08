@@ -53,7 +53,7 @@
     widgetItem.Display_Name = self.allowedNativeWidgets[0];
     widgetItem.Visibility = @"No";
     widgetItem.Widget_Type = @"native";
-   // [self.widgets addObject:widgetItem];
+    // [self.widgets addObject:widgetItem];
     
     self.homeMenuTitle.text = @"Latest";
     
@@ -63,38 +63,38 @@
     widgetItem.Visibility = @"No";
     widgetItem.Widget_Type = @"native";
     [self.widgets addObject:widgetItem];
-
+    
     widgetItem = [CXWidgetItem new];
     widgetItem.Name = self.allowedNativeWidgets[2];
     widgetItem.Display_Name = self.allowedNativeWidgets[2];
     widgetItem.Visibility = @"No";
     //widgetItem.Widget_Type = @"native";
     //widgetItem.childItems = [[NSMutableArray alloc]initWithObjects:@"General Offers",@"Special Offers",@"Special Deals", nil];
-   // [self.widgets addObject:widgetItem];
-
+    // [self.widgets addObject:widgetItem];
+    
     widgetItem = [CXWidgetItem new];
     widgetItem.Name = self.allowedNativeWidgets[3];
     widgetItem.Display_Name = self.allowedNativeWidgets[3];
     widgetItem.Visibility = @"No";
     widgetItem.Widget_Type = @"native";
-
+    
     [self.widgets addObject:widgetItem];
-
+    
     widgetItem = [CXWidgetItem new];
     widgetItem.Name = self.allowedNativeWidgets[4];
     widgetItem.Display_Name = self.allowedNativeWidgets[4];
     widgetItem.Visibility = @"No";
     widgetItem.Widget_Type = @"native";
     
-//    [self.widgets addObject:widgetItem];
+    //    [self.widgets addObject:widgetItem];
     
-//    widgetItem = [CXWidgetItem new];
-//    widgetItem.Name = self.allowedNativeWidgets[5];
-//    widgetItem.Display_Name = self.allowedNativeWidgets[5];
-//    widgetItem.Visibility = @"No";
-//    widgetItem.Widget_Type = @"native";
-//    
-//    [self.widgets addObject:widgetItem];
+    //    widgetItem = [CXWidgetItem new];
+    //    widgetItem.Name = self.allowedNativeWidgets[5];
+    //    widgetItem.Display_Name = self.allowedNativeWidgets[5];
+    //    widgetItem.Visibility = @"No";
+    //    widgetItem.Widget_Type = @"native";
+    //
+    //    [self.widgets addObject:widgetItem];
     
     widgetItem = [CXWidgetItem new];
     widgetItem.Name = @"Programs";
@@ -103,7 +103,7 @@
     widgetItem.Widget_Type = @"native";
     
     
-//    [self.widgets addObject:widgetItem];
+    //    [self.widgets addObject:widgetItem];
     
     widgetItem = [CXWidgetItem new];
     widgetItem.Name = @"Speakers";
@@ -111,11 +111,11 @@
     widgetItem.Visibility = @"No";
     widgetItem.Widget_Type = @"native";
     
-//    [self.widgets addObject:widgetItem];
+    //    [self.widgets addObject:widgetItem];
     
     
     self.tblCollapesAndExpand.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    
     
     [[DataServices serviceInstance] getAllProductsCategoriesForMallId:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"MALL_ID"] finishBlock:^(NSArray* products)
      {
@@ -126,21 +126,27 @@
                  NSMutableArray* childItems = [NSMutableArray new];
                  for(OnGoProductCategories* category in products)
                  {
-                    // [childItems addObject:category.Name];
+                     // [childItems addObject:category.Name];
                      CXWidgetItem*  widgetItem = [CXWidgetItem new];
                      widgetItem.Name = category.Name;
                      widgetItem.Display_Name = category.Name;
                      widgetItem.Visibility = @"No";
                      widgetItem.Widget_Type = @"url";
                      
-
+                     
                      [self.widgets addObject:widgetItem];
-
+                     
                  }
                  widget.childItems = childItems;
                  break;
              }
          }
+         NSSortDescriptor *sortDescriptor;
+         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"Display_Name"
+                                                      ascending:YES];
+         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+         self.widgets = [NSMutableArray arrayWithArray:[self.widgets sortedArrayUsingDescriptors:sortDescriptors]];
+         [self.tblCollapesAndExpand reloadData];
          
      }];
     
@@ -212,7 +218,7 @@
                              dict[@"grouplist"] = list;
                              [childItems addObject:dict];
                          }
-
+                         
                      }
                      else if(![category.IsSpecialService boolValue] && ([category.GroupName length] > 0))// only with group name
                      {
@@ -241,7 +247,7 @@
                              dict[@"grouplist"] = list;
                              [childItems addObject:dict];
                          }
-
+                         
                      }
                      else
                      {
@@ -257,59 +263,59 @@
          }
          
      }];
-
-     for(OGWidgets* widget in [OGWorkSpace sharedWorkspace].widgets)
-     {
-         BOOL exists = NO;
-         for(CXWidgetItem* widget in self.widgets)
-         {
-             if([widget.Name isEqualToString:widget.Name])
-             {
-                 if(![widget.Visibility boolValue])// if visibility is false
-                 {
-                     [self.widgets removeObject:widget];
-                 }
-                 else
-                 {
-                     widget.Visibility = @"Yes";
-                     widget.Display_Name = widget.Display_Name;
-                 }
-                 exists = YES;
-                 break;
-             }
-         }
-         if(!exists)
-         {
-             if([widget.visibility boolValue])
-             {
-                 if([widget.widgetType isEqualToString:@"Custom Tab"])
-                 {
-                     CXWidgetItem* widgetItem = [CXWidgetItem new];
-                     widgetItem.Name = widget.name;
-                     widgetItem.Display_Name = widget.displayName;
-                     widgetItem.Visibility = widget.visibility;
-                     widgetItem.Widget_Type = widget.widgetType;
-                     [self.widgets addObject:widgetItem];
-                 }
-             }
-             
-         }
-
-     }
-     
+    
+    for(OGWidgets* widget in [OGWorkSpace sharedWorkspace].widgets)
+    {
+        BOOL exists = NO;
+        for(CXWidgetItem* widget in self.widgets)
+        {
+            if([widget.Name isEqualToString:widget.Name])
+            {
+                if(![widget.Visibility boolValue])// if visibility is false
+                {
+                    [self.widgets removeObject:widget];
+                }
+                else
+                {
+                    widget.Visibility = @"Yes";
+                    widget.Display_Name = widget.Display_Name;
+                }
+                exists = YES;
+                break;
+            }
+        }
+        if(!exists)
+        {
+            if([widget.visibility boolValue])
+            {
+                if([widget.widgetType isEqualToString:@"Custom Tab"])
+                {
+                    CXWidgetItem* widgetItem = [CXWidgetItem new];
+                    widgetItem.Name = widget.name;
+                    widgetItem.Display_Name = widget.displayName;
+                    widgetItem.Visibility = widget.visibility;
+                    widgetItem.Widget_Type = widget.widgetType;
+                    [self.widgets addObject:widgetItem];
+                }
+            }
+            
+        }
+        
+    }
+    
     //Sorting the data
-     NSSortDescriptor *sortDescriptor;
-     sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"Display_Name"
-                                                  ascending:YES];
-     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-     self.widgets = [NSMutableArray arrayWithArray:[self.widgets sortedArrayUsingDescriptors:sortDescriptors]];
-     [self.tblCollapesAndExpand reloadData];
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"Display_Name"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    self.widgets = [NSMutableArray arrayWithArray:[self.widgets sortedArrayUsingDescriptors:sortDescriptors]];
+    [self.tblCollapesAndExpand reloadData];
     
     
-   if(!expandedSections)
+    if(!expandedSections)
     {
         expandedSections = [[NSMutableIndexSet alloc] init];
-     }
+    }
     
 }
 
@@ -360,7 +366,7 @@
         label = (UILabel*)[cell viewWithTag:1];
         
         UIView* topSeparatorLineView = (UIView*)[cell viewWithTag:2];
-
+        
         if(indexPath.section == 0)
         {
             topSeparatorLineView.hidden = NO;
@@ -381,7 +387,7 @@
     {
         label.text = [self.widgets[indexPath.section] Display_Name];
         [label setFont:[UIFont selectingCellLableFont]];
-
+        
     }
     else
     {
@@ -396,7 +402,7 @@
         {
             label.text = item.childItems[indexPath.row-1];
             [label setFont:[UIFont selectingCellSubCategoryLabelFont]];
-
+            
         }
     }
     
@@ -410,11 +416,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CXWidgetItem* item = self.widgets[indexPath.section];
-
+    
     if (_delegate && [_delegate respondsToSelector:(@selector(leftMenuViewDidSelectMenuItem:))]) {
         [_delegate leftMenuViewDidSelectMenuItem:item];
     }
-
+    
     if(indexPath.row == 0)
     {
         //remove previous selected section's rows
@@ -429,7 +435,7 @@
                 [indexArray addObject:indPath];
             }
             [expandedSections removeAllIndexes];
-
+            
             [tableView deleteRowsAtIndexPaths:indexArray
                              withRowAnimation:UITableViewRowAnimationBottom];
         }
@@ -442,7 +448,7 @@
                 NSIndexPath* indPath = [NSIndexPath indexPathForRow:index inSection:indexPath.section];
                 [indexArray addObject:indPath];
             }
-
+            
             [expandedSections addIndex:indexPath.section];
             [tableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationTop];
         }
@@ -452,13 +458,13 @@
         {
             //Speakers //Programs
             [self.navController drawerToggle];
-
+            
             if([item.Name isEqualToString:@"Gallery"])
             {
                 CXAlbumGalleryViewController* cxAlbumGalleryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CXAlbumGalleryViewController"];
                 cxAlbumGalleryViewController.attachmentList = _selectedStore.attachments;
                 [self.navController pushViewController:cxAlbumGalleryViewController animated:YES];
-
+                
             }
             else if([item.Widget_Type isEqualToString:@"Custom Tab"])
             {
@@ -477,34 +483,34 @@
                 webViewController.navController = (CCKFNavDrawer*)self.navigationController;
                 webViewController.leftBarTitle = @"Register Now";
                 webViewController.urlString = @"http://gonat.in/delegateregister.php";
-
+                
                 [self.navController pushViewController:webViewController animated:YES];
-
+                
                 
             }else if ([item.Name isEqualToString:@"Venue"]){
                 MapViewController* mapVc = (MapViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
-               // mapVc.storeName = self.storeData.Name;
+                // mapVc.storeName = self.storeData.Name;
                 [self.navController pushViewController:mapVc animated:YES];
                 
-               /* double longitude = [[[self.storeData.json objectFromJSONString] objectForKey:@"Longitude"] doubleValue];
-                double latitude = [[[self.storeData.json objectFromJSONString] objectForKey:@"Latitude"] doubleValue];
-                
-                CLLocationCoordinate2D regionCenter;
-                regionCenter.longitude = longitude;
-                regionCenter.latitude = latitude;
-                mapVc.regionCenter = regionCenter;*/
+                /* double longitude = [[[self.storeData.json objectFromJSONString] objectForKey:@"Longitude"] doubleValue];
+                 double latitude = [[[self.storeData.json objectFromJSONString] objectForKey:@"Latitude"] doubleValue];
+                 
+                 CLLocationCoordinate2D regionCenter;
+                 regionCenter.longitude = longitude;
+                 regionCenter.latitude = latitude;
+                 mapVc.regionCenter = regionCenter;*/
                 
                 
                 //Load the Venu map
             }else if ([item.Name isEqualToString:@"Programs"]){
                 
                 CXCalenderVc*calenderVc  = [[CXCalenderVc alloc]initWithNibName:nil bundle:[NSBundle mainBundle]];
-              calenderVc.view.backgroundColor = [UIColor colorWithRed:204.0f/255 green:204.0f/255 blue:204.0f/255 alpha:1.0f];
+                calenderVc.view.backgroundColor = [UIColor colorWithRed:204.0f/255 green:204.0f/255 blue:204.0f/255 alpha:1.0f];
                 calenderVc.navController = (CCKFNavDrawer*)self.navigationController;
                 [self.navController pushViewController:calenderVc animated:YES];
-
+                
             }
-
+            
         }
     }
     else
@@ -521,7 +527,7 @@
         {
             selectedChildItem = item.childItems[indexPath.row-1];
         }
-
+        
         if([[self.widgets[indexPath.section] Name] isEqualToString:@"Offers"])
         {
             DealsListViewController* dealsListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DealsListViewController"];
@@ -555,8 +561,8 @@
             }
             
         }
-
-
+        
+        
     }
     
 }
@@ -572,11 +578,14 @@
     [self.navController drawerToggle];
     
     CXWidgetItem* item = self.widgets.firstObject;
+    item.Name = @"Latest";
+    item.Display_Name = @"Latest";
+
     
     if (_delegate && [_delegate respondsToSelector:(@selector(leftMenuViewDidSelectMenuItem:))]) {
         [_delegate leftMenuViewDidSelectMenuItem:item];
     }
-
+    
 }
 
 

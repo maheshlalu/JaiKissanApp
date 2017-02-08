@@ -165,6 +165,13 @@ NSString* machineName()
     DefaultSHKConfigurator *configurator = [[OGOdishaSHKConfigurator alloc] init];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
     self.navController = [mainStoryboard instantiateViewControllerWithIdentifier: @"ODNEWS360Nav"];
+    
+#elif MUKTHATV
+    DefaultSHKConfigurator *configurator = [[OGOdishaSHKConfigurator alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
+    self.navController = [mainStoryboard instantiateViewControllerWithIdentifier: @"ODNEWS360Nav"];
+    // NSLog(@"muktha TV");
+    
 #else
     self.navController = [mainStoryboard instantiateViewControllerWithIdentifier: @"CCKFNavDrawer"];
 

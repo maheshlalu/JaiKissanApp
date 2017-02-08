@@ -9,6 +9,10 @@
 #import "CXViewController.h"
 #import "CXKeysViewController.h"
 #import "CXKeyPageViewController.h"
+#import "CBAutoScrollLabel.h"
+
 @interface Odisha360ViewController : CXViewController
+@property (weak, nonatomic) IBOutlet CBAutoScrollLabel *newsTrackView;
+@property (weak, nonatomic) IBOutlet UIView *newsBgView;
 
 @end

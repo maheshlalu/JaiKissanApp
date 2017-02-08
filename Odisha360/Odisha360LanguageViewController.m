@@ -20,6 +20,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+#if ODNEWS360
+   
+#elif MUKTHATV
+    self.secondayLngBtn.titleLabel.text = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language"];
+    //self.view.backgroundColor = [UIColor whiteColor];
+    //self.productIconImage.image = [UIImage imageNamed:@""];
+#else
+    
+#endif
+    
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

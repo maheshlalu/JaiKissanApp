@@ -9,8 +9,10 @@
 #import "OGOdishaNewsJobs.h"
 #import "OGUserdetails.h"
 #import "OGDataServices.h"
-
+//http://52.66.141.69:8081/
 NSString* const OGGetLatestNewsURL = @"Services/getMasters?type=%@&unlimited=false&mallId=%@";
+NSString* const OGGetLatest = @"Services/getMasters?mallId=%@&pageNumber=%lu&pageSize=%@";
+//http://52.66.141.69:8081/Services/getMasters?mallId=4&pageNumber=1&pageSize=18
 
 NSString *const kOGOdishaNewsShowInsights = @"showInsights";
 NSString *const kOGOdishaNewsJobs = @"jobs";
@@ -60,31 +62,31 @@ NSString *const kOGOdishaNewsGuestUserEmail = @"guestUserEmail";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.showInsights = [[self objectOrNilForKey:kOGOdishaNewsShowInsights fromDictionary:dict] boolValue];
-    NSObject *receivedOGJobs = [dict objectForKey:kOGOdishaNewsJobs];
-    NSMutableArray *parsedOGJobs = [NSMutableArray array];
-    if ([receivedOGJobs isKindOfClass:[NSArray class]]) {
-        for (NSDictionary *item in (NSArray *)receivedOGJobs) {
-            if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsedOGJobs addObject:[OGOdishaNewsJobs modelObjectWithDictionary:item]];
+        self.showInsights = [[self objectOrNilForKey:kOGOdishaNewsShowInsights fromDictionary:dict] boolValue];
+        NSObject *receivedOGJobs = [dict objectForKey:kOGOdishaNewsJobs];
+        NSMutableArray *parsedOGJobs = [NSMutableArray array];
+        if ([receivedOGJobs isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *item in (NSArray *)receivedOGJobs) {
+                if ([item isKindOfClass:[NSDictionary class]]) {
+                    [parsedOGJobs addObject:[OGOdishaNewsJobs modelObjectWithDictionary:item]];
+                }
             }
-       }
-    } else if ([receivedOGJobs isKindOfClass:[NSDictionary class]]) {
-       [parsedOGJobs addObject:[OGOdishaNewsJobs modelObjectWithDictionary:(NSDictionary *)receivedOGJobs]];
-    }
-
-    self.jobs = [NSArray arrayWithArray:parsedOGJobs];
-            self.averageRating = [[self objectOrNilForKey:kOGOdishaNewsAverageRating fromDictionary:dict] doubleValue];
-            self.totalNumRecords = [[self objectOrNilForKey:kOGOdishaNewsTotalNumRecords fromDictionary:dict] doubleValue];
-            self.count = [[self objectOrNilForKey:kOGOdishaNewsCount fromDictionary:dict] doubleValue];
-            self.guestUserId = [self objectOrNilForKey:kOGOdishaNewsGuestUserId fromDictionary:dict];
-            self.showJTJobs = [[self objectOrNilForKey:kOGOdishaNewsShowJTJobs fromDictionary:dict] boolValue];
-            self.userdetails = [OGUserdetails modelObjectWithDictionary:[dict objectForKey:kOGOdishaNewsUserdetails]];
-            self.showFields = [[self objectOrNilForKey:kOGOdishaNewsShowFields fromDictionary:dict] boolValue];
-            self.showStatuses = [[self objectOrNilForKey:kOGOdishaNewsShowStatuses fromDictionary:dict] boolValue];
-            self.status = [[self objectOrNilForKey:kOGOdishaNewsStatus fromDictionary:dict] doubleValue];
-            self.guestUserEmail = [self objectOrNilForKey:kOGOdishaNewsGuestUserEmail fromDictionary:dict];
-
+        } else if ([receivedOGJobs isKindOfClass:[NSDictionary class]]) {
+            [parsedOGJobs addObject:[OGOdishaNewsJobs modelObjectWithDictionary:(NSDictionary *)receivedOGJobs]];
+        }
+        
+        self.jobs = [NSArray arrayWithArray:parsedOGJobs];
+        self.averageRating = [[self objectOrNilForKey:kOGOdishaNewsAverageRating fromDictionary:dict] doubleValue];
+        self.totalNumRecords = [[self objectOrNilForKey:kOGOdishaNewsTotalNumRecords fromDictionary:dict] doubleValue];
+        self.count = [[self objectOrNilForKey:kOGOdishaNewsCount fromDictionary:dict] doubleValue];
+        self.guestUserId = [self objectOrNilForKey:kOGOdishaNewsGuestUserId fromDictionary:dict];
+        self.showJTJobs = [[self objectOrNilForKey:kOGOdishaNewsShowJTJobs fromDictionary:dict] boolValue];
+        self.userdetails = [OGUserdetails modelObjectWithDictionary:[dict objectForKey:kOGOdishaNewsUserdetails]];
+        self.showFields = [[self objectOrNilForKey:kOGOdishaNewsShowFields fromDictionary:dict] boolValue];
+        self.showStatuses = [[self objectOrNilForKey:kOGOdishaNewsShowStatuses fromDictionary:dict] boolValue];
+        self.status = [[self objectOrNilForKey:kOGOdishaNewsStatus fromDictionary:dict] doubleValue];
+        self.guestUserEmail = [self objectOrNilForKey:kOGOdishaNewsGuestUserEmail fromDictionary:dict];
+        
     }
     
     return self;
@@ -116,7 +118,7 @@ NSString *const kOGOdishaNewsGuestUserEmail = @"guestUserEmail";
     [mutableDict setValue:[NSNumber numberWithBool:self.showStatuses] forKey:kOGOdishaNewsShowStatuses];
     [mutableDict setValue:[NSNumber numberWithDouble:self.status] forKey:kOGOdishaNewsStatus];
     [mutableDict setValue:self.guestUserEmail forKey:kOGOdishaNewsGuestUserEmail];
-
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
@@ -138,7 +140,7 @@ NSString *const kOGOdishaNewsGuestUserEmail = @"guestUserEmail";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-
+    
     self.showInsights = [aDecoder decodeBoolForKey:kOGOdishaNewsShowInsights];
     self.jobs = [aDecoder decodeObjectForKey:kOGOdishaNewsJobs];
     self.averageRating = [aDecoder decodeDoubleForKey:kOGOdishaNewsAverageRating];
@@ -156,7 +158,7 @@ NSString *const kOGOdishaNewsGuestUserEmail = @"guestUserEmail";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
+    
     [aCoder encodeBool:_showInsights forKey:kOGOdishaNewsShowInsights];
     [aCoder encodeObject:_jobs forKey:kOGOdishaNewsJobs];
     [aCoder encodeDouble:_averageRating forKey:kOGOdishaNewsAverageRating];
@@ -176,7 +178,7 @@ NSString *const kOGOdishaNewsGuestUserEmail = @"guestUserEmail";
     OGOdishaNews *copy = [[OGOdishaNews alloc] init];
     
     if (copy) {
-
+        
         copy.showInsights = self.showInsights;
         copy.jobs = [self.jobs copyWithZone:zone];
         copy.averageRating = self.averageRating;
@@ -220,7 +222,7 @@ NSString *const kOGOdishaNewsGuestUserEmail = @"guestUserEmail";
                              @"pageSize": @(kPageSize)};
     
     NSString *newsTypeEncoded = [newsType stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
+    
     return [[OGDataServices sharedClient] POST:[NSString stringWithFormat:OGGetLatestNewsURL, newsTypeEncoded, [OGWorkSpace sharedWorkspace].mallId] parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         OGOdishaNews *malInfo = [OGOdishaNews modelObjectWithDictionary:responseObject];
         if (block) {
@@ -235,5 +237,116 @@ NSString *const kOGOdishaNewsGuestUserEmail = @"guestUserEmail";
     }];
     
 }
+
++ (NSURLSessionDataTask*)getLatesWithType:(NSString*)newsType currentPageNumber:(NSUInteger)pageNumber block:(void (^)(NSArray *allMallsInfo, NSError *error))block;{
+    
+    NSDictionary *params = @{@"pageNumber": @(pageNumber),
+                             @"pageSize": @(kPageSize),@"mallId":[OGWorkSpace sharedWorkspace].mallId};
+    NSString *newsTypeEncoded = [newsType stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //[NSString stringWithFormat:OGGetLatestNewsURL, newsTypeEncoded, [OGWorkSpace sharedWorkspace].mallId]
+    //@"http://52.66.141.69:8081/Services/getMasters?"
+    
+ 
+    
+    return [[OGDataServices sharedClient] POST:[NSString stringWithFormat:OGGetLatest,[OGWorkSpace sharedWorkspace].mallId,(unsigned long)pageNumber,@(kPageSize)] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                OGOdishaNews *malInfo = [OGOdishaNews modelObjectWithDictionary:responseObject];
+                if (block) {
+                    block(malInfo.jobs, nil);
+                }
+        
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                if (block) {
+                    block([NSArray array], error);
+                }
+                
+            }];
+    
+
+//    
+//    NSError *error = nil;
+//    
+//    
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:OGGetLatest,[OGWorkSpace sharedWorkspace].mallId,(unsigned long)pageNumber,@(kPageSize)]];
+//    
+//    NSMutableURLRequest *urlReq=[NSMutableURLRequest requestWithURL:url];
+//    
+//    NSURLResponse *response;
+//    NSData *receivedData = [NSURLConnection sendSynchronousRequest:urlReq
+//                                                 returningResponse:&response
+//                                                             error:&error];
+//    if(error!=nil)
+//    {
+//        NSLog(@"web service error:%@",error);
+//    }
+//    else
+//    {
+//        if(receivedData !=nil)
+//        {
+//            NSError *Jerror = nil;
+//            
+//            NSDictionary* json =[NSJSONSerialization
+//                                 JSONObjectWithData:receivedData
+//                                 options:kNilOptions
+//                                 error:&Jerror];
+//           // NSLog(@"json error:%@",json);
+//            OGOdishaNews *malInfo = [OGOdishaNews modelObjectWithDictionary:json];
+//                    if (block) {
+//                        block(malInfo.jobs, nil);
+//                    }
+//            
+//            if(Jerror!=nil)
+//            {
+//                NSLog(@"json error:%@",Jerror);
+//            }
+//        }
+//    }
+//    
+    
+//    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+//    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    [manger GET:[NSString stringWithFormat:OGGetLatest,[OGWorkSpace sharedWorkspace].mallId,(unsigned long)pageNumber,@(kPageSize)] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        OGOdishaNews *malInfo = [OGOdishaNews modelObjectWithDictionary:responseObject];
+//        if (block) {
+//            block(malInfo.jobs, nil);
+//        }
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//        if (block) {
+//            block([NSArray array], error);
+//        }
+//    }];
+    
+//    [manger POST:[NSString stringWithFormat:OGGetLatest,[OGWorkSpace sharedWorkspace].mallId,(unsigned long)pageNumber,@(kPageSize)] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        OGOdishaNews *malInfo = [OGOdishaNews modelObjectWithDictionary:responseObject];
+//        if (block) {
+//            block(malInfo.jobs, nil);
+//        }
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//        if (block) {
+//            block([NSArray array], error);
+//        }
+//    }];
+//    
+    
+//    return [[OGDataServices sharedClient] POST:[NSString stringWithFormat:OGGetLatestNewsURL, newsTypeEncoded, [OGWorkSpace sharedWorkspace].mallId] parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        OGOdishaNews *malInfo = [OGOdishaNews modelObjectWithDictionary:responseObject];
+//        if (block) {
+//            block(malInfo.jobs, nil);
+//        }
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        if (block) {
+//            block([NSArray array], error);
+//        }
+//        
+//    }];
+}
+
 
 @end

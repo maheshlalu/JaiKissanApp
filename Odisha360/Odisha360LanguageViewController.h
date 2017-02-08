@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface Odisha360LanguageViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *secondayLngBtn;
 
 @property (nonatomic, assign) id delegate;
+@property (weak, nonatomic) IBOutlet UIImageView *productIconImage;
+@property (weak, nonatomic) IBOutlet UIButton *primaryLngBtn;
 
 @end

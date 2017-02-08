@@ -29,9 +29,9 @@
     [super viewDidLoad];
     
     if (_isOdishaLanguage) {
-        self.newsTitle.font = [UIFont fontWithName:@"AkrutiOriSarala06" size:self.newsTitle.font.pointSize];
-        self.newsPublishedDate.font = [UIFont fontWithName:@"AkrutiOriSarala06" size:self.newsPublishedDate.font.pointSize];
-        self.newsDescription.font = [UIFont fontWithName:@"AkrutiOriSarala06" size:self.newsDescription.font.pointSize];
+        self.newsTitle.font = [UIFont fontWithName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"] size:self.newsTitle.font.pointSize];
+        self.newsPublishedDate.font = [UIFont fontWithName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"] size:self.newsPublishedDate.font.pointSize];
+        self.newsDescription.font = [UIFont fontWithName:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"Local_Language_Font"] size:self.newsDescription.font.pointSize];
         
         _newsItem.jobsDescription = [_newsItem.jobsDescription stringByAppendingString:[NSString stringWithFormat:@"<style>body{font-family: '%@'; font-size:%fpx;}</style>",
                                                                                         self.newsDescription.font.fontName,
