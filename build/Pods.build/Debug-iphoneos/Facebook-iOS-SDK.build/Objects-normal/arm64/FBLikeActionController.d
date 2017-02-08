@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/UI/FBLikeActionController.m \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Target\ Support\ Files/Facebook-iOS-SDK/Facebook-iOS-SDK-prefix.pch \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/UI/FBLikeActionController.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBLikeControl.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBSDKMacros.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Insights/FBAppEvents+Internal.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBAppEvents.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBSession.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Core/FBDataDiskCache.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/DeviceAPI/FBDialogs+Internal.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBDialogs.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBAppCall.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBAccessTokenData.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBAppLinkData.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBDialogsData.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBLinkShareParams.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBDialogsParams.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBOpenGraphActionParams.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBOpenGraphAction.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBGraphObject.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBPhotoParams.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/DeviceAPI/FBLikeDialogParams.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBError.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Core/FBErrorUtility+Internal.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBErrorUtility.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Core/FBInternalSettings.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBSettings.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/AudioResources/FBLikeButtonPopWAV.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Core/FBAudioResourceLoader.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Core/FBLogger.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Network/FBRequest+Internal.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBRequest.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBOpenGraphObject.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/FBRequestConnection.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Core/FBUtility.h \
+  /Users/ramakuppa/Desktop/balachandraproject/OnGOWorkspace/Pods/Facebook-iOS-SDK/src/Core/FBFetchedAppSettings.h

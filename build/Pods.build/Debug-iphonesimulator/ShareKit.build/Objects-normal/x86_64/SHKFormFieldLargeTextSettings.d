@@ -1,0 +1,15 @@
+dependencies: \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormFieldLargeTextSettings.m \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Target\ Support\ Files/ShareKit/ShareKit-prefix.pch \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormFieldLargeTextSettings.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormFieldSettings.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/SHKItem.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Helpers/SHKFile.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Categories/UIImage+OurBundle.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/SDWebImage/SDWebImage/SDWebImageCompat.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/SDWebImage/SDWebImage/SDWebImageManager.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/SDWebImage/SDWebImage/SDWebImageOperation.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/SDWebImage/SDWebImage/SDWebImageDownloader.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/SDWebImage/SDWebImage/SDImageCache.h

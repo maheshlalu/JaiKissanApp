@@ -1,0 +1,70 @@
+dependencies: \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Sharers/Services/Facebook/SHKFacebook.m \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Target\ Support\ Files/ShareKit/ShareKit-prefix.pch \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Sharers/Services/Facebook/SHKFacebook.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Base\ Sharer\ Classes/SHKSharer.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Helpers/SHKSessionDelegate.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBRequestConnection.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBGraphObject.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBSDKMacros.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Sharers/Services/Facebook/SHKFacebookCommon.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Base\ Sharer\ Classes/SharersCommonHeaders.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/SHK.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Helpers/Debug.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKActivityIndicator.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormFieldSettings.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormFieldOptionPickerSettings.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormOptionController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormFieldLargeTextSettings.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/SHKItem.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Helpers/SHKFile.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/UI/SHKFormFieldCell.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Helpers/FormControllerCallback.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Configuration/SHKConfiguration.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Base\ Sharer\ Classes/SHKSharer_protected.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Categories/NSMutableDictionary+NSNullsToEmptyStrings.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/ShareKit/Classes/ShareKit/Core/Categories/NSHTTPCookieStorage+DeleteForURL.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FacebookSDK.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBAccessTokenData.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBSession.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBAppCall.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBAppLinkData.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBDialogsData.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBAppEvents.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBCacheDescriptor.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBDialogs.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBLinkShareParams.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBDialogsParams.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBOpenGraphActionParams.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBOpenGraphAction.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBPhotoParams.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBError.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBErrorUtility.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBFrictionlessRecipientCache.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBRequest.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBOpenGraphObject.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBWebDialogs.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBFriendPickerViewController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBGraphUser.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBGraphPerson.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBGraphPlace.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBGraphLocation.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBPeoplePickerViewController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBGraphObjectPickerViewController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBViewController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBInsights.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBLikeControl.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBLoginView.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBTooltipView.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBNativeDialogs.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBOpenGraphActionShareDialogParams.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBShareDialogParams.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBPlacePickerViewController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBProfilePictureView.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBSessionTokenCachingStrategy.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBSettings.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBShareDialogPhotoParams.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBTaggableFriendPickerViewController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/FBUserSettingsViewController.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Headers/Public/Facebook-iOS-SDK/FacebookSDK/NSError+FBError.h

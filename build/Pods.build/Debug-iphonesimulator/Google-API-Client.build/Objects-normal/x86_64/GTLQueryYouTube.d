@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLQueryYouTube.m \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Target\ Support\ Files/Google-API-Client/Google-API-Client-prefix.pch \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLQueryYouTube.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Objects/GTLQuery.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Objects/GTLObject.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/GTLDefines.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Utilities/GTLUtilities.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Objects/GTLDateTime.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Objects/GTLUploadParameters.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeActivity.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeActivityListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeChannel.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeChannelBannerResource.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeChannelListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeChannelSection.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeChannelSectionListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeGuideCategoryListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeI18nLanguageListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeI18nRegionListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeInvideoBranding.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeLiveBroadcast.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeLiveBroadcastListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeLiveStream.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeLiveStreamListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubePlaylist.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubePlaylistItem.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubePlaylistItemListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubePlaylistListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeSearchListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeSubscription.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeSubscriptionListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeThumbnailSetResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeVideo.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeVideoCategoryListResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeVideoGetRatingResponse.h \
+  /Users/ramakuppa/Desktop/OnGOWorkspace/Pods/Google-API-Client/Source/Services/YouTube/Generated/GTLYouTubeVideoListResponse.h
